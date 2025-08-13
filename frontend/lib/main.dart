@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:frontend/screens/dashboard/recent_matches_screen.dart';
 import 'package:frontend/screens/dashboard/user_dashboard.dart';
 import 'config/app_colors.dart';
 import 'screens/auth/login_screen.dart';
@@ -33,6 +34,7 @@ class KhelMitraApp extends StatelessWidget {
         '/login': (context) => const LoginScreen(),
         '/signup': (context) => const SignupScreen(),
         '/dashboard': (context) => const UserDashboard(),
+        '/recent': (context) => const RecentMatchesScreen(),
       },
     );
   }

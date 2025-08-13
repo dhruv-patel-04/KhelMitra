@@ -11,11 +11,15 @@ class SignupScreen extends StatefulWidget {
 class _SignupScreenState extends State<SignupScreen> {
   final TextEditingController nameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
+  final TextEditingController mobileController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  final TextEditingController confirmPasswordController = TextEditingController();
+  
+  String? selectedGender;
 
   void _signup() {
     // TODO: Add API call here
-    Navigator.pushReplacementNamed(context, '/dashboard');
+    Navigator.pushReplacementNamed(context, '/login');
   }
 
   @override
@@ -39,6 +43,7 @@ class _SignupScreenState extends State<SignupScreen> {
               const SizedBox(height: 16),
               TextField(
                 controller: emailController,
+                keyboardType: TextInputType.emailAddress,
                 decoration: const InputDecoration(
                   labelText: "Email",
                   border: OutlineInputBorder(),
@@ -46,10 +51,57 @@ class _SignupScreenState extends State<SignupScreen> {
               ),
               const SizedBox(height: 16),
               TextField(
+                controller: mobileController,
+                keyboardType: TextInputType.phone,
+                decoration: const InputDecoration(
+                  labelText: "Mobile No",
+                  border: OutlineInputBorder(),
+                ),
+              ),
+              const SizedBox(height: 16),
+              DropdownButtonFormField<String>(
+                value: selectedGender,
+                decoration: const InputDecoration(
+                  labelText: "Gender",
+                  border: OutlineInputBorder(),
+                ),
+                items: const [
+                  DropdownMenuItem(
+                    value: "Male",
+                    child: Text("Male"),
+                  ),
+                  DropdownMenuItem(
+                    value: "Female",
+                    child: Text("Female"),
+                  ),
+                ],
+                onChanged: (value) {
+                  setState(() {
+                    selectedGender = value;
+                  });
+                },
+                validator: (value) {
+                  if (value == null) {
+                    return 'Please select a gender';
+                  }
+                  return null;
+                },
+              ),
+              const SizedBox(height: 16),
+              TextField(
                 controller: passwordController,
                 obscureText: true,
                 decoration: const InputDecoration(
                   labelText: "Password",
+                  border: OutlineInputBorder(),
+                ),
+              ),
+              const SizedBox(height: 16),
+              TextField(
+                controller: confirmPasswordController,
+                obscureText: true,
+                decoration: const InputDecoration(
+                  labelText: "Confirm Password",
                   border: OutlineInputBorder(),
                 ),
               ),
