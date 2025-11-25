@@ -1,0 +1,10 @@
+{
+  "cors": [
+    {
+      "origin": ["http://127.0.0.1:8000", "http://localhost:8000"],
+      "responseHeader": ["Content-Type", "Authorization"],
+      "method": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+      "maxAgeSeconds": 3600
+    }
+  ]
+}
