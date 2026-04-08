@@ -15,7 +15,7 @@ KhelMitra/
 |- khelmitra_backend/      # Django + DRF API server
 |- khelmitra_frontend/     # Flutter app for fans/users
 |- khelmitra_referee/      # Flutter app for referees
-`- README.md
+|- README.md
 ```
 
 ## Core Features
